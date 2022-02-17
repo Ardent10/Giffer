@@ -23,3 +23,24 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+::-webkit-scrollbar{
+  width: 0.75em;
+}
+
+::-webkit-scrollbar-track{
+  background: rgb(75, 78, 75);
+  border-radius: 100vw;
+  margin-block: 0.15em;
+}
+
+::-webkit-scrollbar-thumb{
+  background: rgb(165, 160, 160);
+  border-radius: 100vw;
+  border: 0.15em solid rgb(85, 90, 85);
+  transition: all 0.5s ease;
+}
+::-webkit-scrollbar-thumb:hover{
+  background: rgb(255, 255, 255);
+}
+
