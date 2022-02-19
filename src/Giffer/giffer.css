@@ -5,15 +5,15 @@
   border-radius: 5px;
   box-shadow: 0 0 3em rgba(0,0,0,.15);
   position: relative;
-  transition: all 0.5s ease;
+  /* transition: all 0.5s ease; */
 }
 
 .searchBox{
   position: absolute;
   border: 2px solid rgb(255, 255, 255);
   border-radius: 50px;
-  width: 50px;
-  height: 50px;
+  width: 42px;
+  height: 42px;
   display: flex;
   transition: 0.5s;
   justify-content: center;
@@ -29,14 +29,14 @@
   visibility: visible;
 
 }
-.content:hover { 
+/* .content:hover { 
   transition: 0.5s;
-}
+} */
 
 .searchBox:hover{
   position: absolute;
   width: 250px;
-  height: 50px;
+  height: 42px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -46,31 +46,34 @@
  position: relative;
  margin:  5px 5px 5px 0;
  width: 100%;
- transition: 0.5s all ease;
+ /* transition: 0.5s all ease; */
  height: 100%;
  border: none;
  padding: 10px 25px;
  outline: none;
  font-size: 1.1em;
- color: rgb(144, 242, 255);
+ color: rgb(27, 106, 180);
  background:transparent ;
  
 } 
 
 .search-btn{
+  margin: 0 2px;
   z-index: 1;
-  padding: 10px;
+  padding: 7px;
   position: absolute;
   right: 0px;
-  font-size: 1.5em;
-  transition:0.5s;
+  font-size: 1.2em;
+  /* transition:0.5s; */
+  border-radius: 50%;
+  background-color: rgb(136, 140, 145);
   color: rgb(255, 255, 255);
 }
 
 .search-btn:hover{
   margin: 0 2px;
   border-radius: 50%;
-  background-color: rgb(127, 214, 255);
+  background-color: rgb(127, 182, 255);
  
 }
 .temp-gif{
@@ -81,15 +84,16 @@
 }
 
 .result{
-  padding: 20px 5px;
-  width: 350px;
+  justify-content: center;
+  padding: 5px;
+  /* width: 350px; */
 }
 
 .result .list{
+  overflow-y: auto;
   display: flex;
   flex-wrap: wrap;
   height: 350px;
-  overflow-y: scroll;
   /* overflow: hidden; */
   /* width: 50%; */
   /* flex-direction: column; */
@@ -120,14 +124,11 @@
 }
 
 .loading{
-  width: 100%;
+  margin-left: 45%;
   display: flex;
   justify-content: center;
-}
-
-.loading{
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   border: 5px solid rgba(85, 201, 255, 0.333);
   border-top: 5px solid #111;
   border-radius: 50%;

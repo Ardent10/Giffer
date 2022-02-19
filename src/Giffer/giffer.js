@@ -1,16 +1,19 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import "./giffer.css";
 import {GoSearch} from "react-icons/go";
 const GIPHY_API = "https://api.giphy.com/v1/gifs/search?api_key=dc6zaTOxFJmzC&limit=20&offset=0&q=";
 
-let GifSearch = () =>{
+let GifSearch = ({src,id}) =>{
 
     let [search, setSearch]  = useState("");
     let [gifs,setGifs]         = useState([]);
     let [updatedGif,setUpdatedGif] = useState("");
+    let [storedGif,setStoredGif ]  = useState([
+        id,src
+    ]);
     let [loading,setLoading] = useState(false); 
 
-  
+  console.log(storedGif)
 
     let searchGif =()=>{
         if(search.length >0){
@@ -44,12 +47,27 @@ let GifSearch = () =>{
         setSearch("")
         setGifs([]);
     }
-    // console.log(updatedGif);
-   
+
+    useEffect(()=>{
+        const localStorageGif = localStorage.getItem('Gif');
+        if(localStorageGif){
+            setUpdatedGif(JSON.parse(localStorageGif))
+        } 
+    },[])
+
+    useEffect(()=>{
+            
+        
+            localStorage.setItem('Gif', JSON.stringify(updatedGif));
+    
+    })
+
+    // console.log(updatedGif)
+    
     
     return (
         
-        <>
+        <div>
         <div className="content">
             <div className="searchBox">        
                 <input 
@@ -63,7 +81,9 @@ let GifSearch = () =>{
                 />
                 <button className="search-btn" onClick={searchGif}><GoSearch/></button>
             </div>
-            <img className="temp-gif"  src={ updatedGif==="" ?"https://media.giphy.com/media/l3HBbltOYjoNq/giphy.gif" : updatedGif } alt="minion" />
+            <div key={id} >
+                <img  className={"md:h-14 w-1/4 m-0 2xl:h-96 rounded-md shadow-lg object-cover temp-gif"}  src={ updatedGif===""? src : updatedGif } alt="gif" />
+            </div>
         </div>
 
          <div className="result">
@@ -77,7 +97,7 @@ let GifSearch = () =>{
                  return (
                      <div className="item" key={index}>
                         <img src={gif} onClick={()=>setNewGif(gif)} alt="gif" />
-                        <button className="set-btn">Set</button>
+                        <button className="set-btn" onClick={()=>setNewGif(gif)}>Set</button>
                      </div>
 
                  );
@@ -85,7 +105,7 @@ let GifSearch = () =>{
             </div>
          )}
          </div>
-        </>    
+        </div>    
     );
 }
 
