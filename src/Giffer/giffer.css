@@ -3,7 +3,7 @@
   width: 350px;
   height: 350px;
   border-radius: 5px;
-  box-shadow: 0 0 3em rgba(0,0,0,.15);
+  box-shadow: 0 0 3em rgba(0, 0, 0, 0.15);
   position: relative;
   /* transition: all 0.5s ease; */
 }
@@ -29,9 +29,6 @@
   visibility: visible;
 
 }
-/* .content:hover { 
-  transition: 0.5s;
-} */
 
 .searchBox:hover{
   position: absolute;
@@ -76,6 +73,58 @@
   background-color: rgb(127, 182, 255);
  
 }
+
+.delete-btn{
+  margin: 8px 2px;
+  z-index: 1;
+  padding: 7px;
+  position: absolute;
+  right: 0px;
+  font-size: 1.2em;
+  /* transition:0.5s; */
+  border-radius: 50%;
+  background-color: rgb(136, 140, 145);
+  color: rgb(255, 255, 255);
+}
+.delete-btn:hover{
+  margin: 8px 2px;
+  border-radius: 50%;
+  background-color: rgb(127, 182, 255);
+ 
+}
+
+.deleteBox{
+  position: absolute;
+  border: 2px solid rgb(255, 255, 255);
+  border-radius: 50px;
+  width: 42px;
+  height: 42px;
+  display: flex;
+  transition: 0.5s;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  top: 5px;
+  right: 5px;
+
+  visibility: hidden;
+  
+}
+.content:hover .deleteBox{
+  visibility: visible;
+
+}
+
+.deleteBox:hover{
+  position: absolute;
+  width: 42px;
+  height: 42px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
 .temp-gif{
   position: absolute;
   width: 100%;

@@ -1,6 +1,7 @@
 import React, { useState,useEffect } from "react";
 import "./giffer.css";
 import {GoSearch} from "react-icons/go";
+import {MdDeleteOutline} from "react-icons/md";
 const GIPHY_API = "https://api.giphy.com/v1/gifs/search?api_key=dc6zaTOxFJmzC&limit=20&offset=0&q=";
 
 let GifSearch = ({src,id}) =>{
@@ -64,6 +65,10 @@ let GifSearch = ({src,id}) =>{
 
     // console.log(updatedGif)
     
+    const removeGif = ()=>{
+
+    }    
+
     
     return (
         
@@ -81,6 +86,9 @@ let GifSearch = ({src,id}) =>{
                 />
                 <button className="search-btn" onClick={searchGif}><GoSearch/></button>
             </div>
+             <div className="deleteBox">
+                <button className="delete-btn" onClick={removeGif}><MdDeleteOutline/></button>
+             </div>    
             <div key={id} >
                 <img  className={"md:h-14 w-1/4 m-0 2xl:h-96 rounded-md shadow-lg object-cover temp-gif"}  src={ updatedGif===""? src : updatedGif } alt="gif" />
             </div>
